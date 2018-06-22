@@ -1,0 +1,28 @@
+{
+  "sideNavMenu": [
+    {
+      "menuName":"Trip Package",
+      "icon":"fab fa-nintendo-switch",
+      "subMenu" :[
+        {
+          "name":"Add New Package",
+          "href": "addNewPackage.html"
+        },
+        {
+          "name":"Package's List",
+          "href": "packageList.html"
+        }
+      ]
+    },
+    {
+      "menuName":"Trip Booker",
+      "icon":"fas fa-bolt",
+      "subMenu" :[
+        {
+          "name":"Trip Booker List",
+          "href": "tripBookerList.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--css fie-->
+    <!--==============-->
+    <!--fontawesome-->
+    <link rel="stylesheet" href="css/fontawesome-all.css" >
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <!--main css-->
+    <link rel="stylesheet" href="css/main.css" >
+
+    <!--js file-->
+    <!--==============-->
+    <!--bootstrap js-->
+    <script src="js/bootstrap.js" ></script>
+    <!--jquery js-->
+    <script src="js/jQuery.js" ></script>
+    <!--main js-->
+    <script src="js/main.js" ></script>
+    <!--firebase database js-->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="js/database.js" ></script>
+</head>
+<body>
+
+<!--side nav-->
+<div class="side_nav" >
+    <div class="side_nav_head" >
+        <i class="fab fa-y-combinator"></i>
+        <h4>TRIPPER</h4>
+    </div>
+    <div class="side_nav_menu" ></div>
+</div>
+
+<!--main container-->
+<div class="main_container" >
+
+    <div class="container_header_nav" >
+        <div class="side_nav_close_btn" >
+            <i class="fas fa-th-list"></i>
+        </div>
+        <div class="user_setting" >
+            <a href="#" ><i class="fab fa-foursquare"></i> Contact Us </a>
+        </div>
+    </div>
+
+    <div class="container" >
+        <div class="row" >
+            <div class="col-sm-12" >
+                <div class="antp_header" >
+                    <h5 class="click" id="placeName" >Trip Package Info</h5>
+                    <i id="save_package_info_loader" class="fas fa-circle-notch fa-spin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-12" >
+                <div class="package_info_by_id" >
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Number of children</td>
+                            <td><span id="noOfChildren" ></span></td>
+                            <td>Vip hotel cost</td>
+                            <td><span id="vipHotelCst" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Number of adults</td>
+                            <td><span id="noOfAdults" ></span></td>
+                            <td>Economy hotel cost</td>
+                            <td><sppan id="ecoHotelCst" ></sppan></td>
+                        </tr>
+                        <tr>
+                            <td>Number of days</td>
+                            <td><samp id="noOfDays" ></samp></td>
+                            <td>Standard hotel cost</td>
+                            <td><span id="stdHotelCst" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Number of nights</td>
+                            <td><span id="noOfNights" ></span></td>
+                            <td>Vip food cost</td>
+                            <td><span id="vipFoodCst" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Bus transport Cost</td>
+                            <td><span id="busTptCst" ></span></td>
+                            <td>Economy food Cost</td>
+                            <td><span id="ecoFoodCst" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Train transport Cost</td>
+                            <td><span id="trainTptCst" ></span></td>
+                            <td>Standard food Cost</td>
+                            <td><span id="stdFoodCst" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Air transport Cost</td>
+                            <td><span id="airTptCst" ></span></td>
+                            <td>Bus pickup place</td>
+                            <td><span id="busPickPLace" ></span></td>
+                        </tr>
+                        <tr>
+                            <td>Train pickup place</td>
+                            <td><span id="trainPickPlace" ></span></td>
+                            <td>Air pickup place</td>
+                            <td><span id="airPickPlace" ></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-12" >
+                <div class="antp_header" >
+                    <h5 >Description</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-8" >
+                <div class="description_area" >
+                    <p id="description" ></p>
+                </div>
+            </div>
+            <div class="col-sm-4" >
+                <div class="img_area" >
+                    <img id="imgUri" height="150px" width="150px" src="" class="rounded">
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-12">
+                <div class="button_area" >
+                    <button id="packageId" class='btn btn-secondary bookPackage'>Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<button class="open_chat_box"><i class="fab fa-facebook-messenger"></i></button>
+<div class="my_modal">
+
+    <!-- Modal content -->
+    <div class="modal_content">
+        <div class="modal_header">
+            <i id="chat_logo" class="fab fa-y-combinator"></i>
+            <i id="close_chat_box" class="fas fa-times"></i>
+        </div>
+        <div class="modal_body">
+
+            <div class="loading" >
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <p> Thinking .... </p>
+            </div>
+            <div class="quick_replay" ></div>
+            <div class="my_card_area" ></div>
+        </div>
+        <div class="modal_footer">
+            <input id="user_replay" type="text" placeholder="Ask Me .... " >
+            <i id="user_replay_icon" class="fab fa-telegram"></i>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var packageId = localStorage.getItem("packageIdForShowDetails");
+
+    readPackageInfoById(packageId);
+
+    function readPackageInfoById(packageId) {
+
+        db.ref('tripPackageInfos/'+packageId).once('value')
+            .then(function (data) {
+
+                var val = data.val();
+                console.log(val.placeName);
+
+                $("#packageId").attr('id',val.packAgeId);
+                $("#placeName").text(val.placeName);
+                $("#noOfChildren").text(val.noOfChildren);
+                $("#noOfAdults").text(val.noOfAdults);
+                $("#vipHotelCst").text(val.vipHotelCst);
+                $("#ecoHotelCst").text(val.ecoHotelCst);
+                $("#stdHotelCst").text(val.stdHotelCst);
+                $("#vipFoodCst").text(val.vipFoodCst);
+                $("#ecoFoodCst").text(val.ecoFoodCst);
+                $("#stdFoodCst").text(val.stdFoodCst);
+                $("#busTptCst").text(val.busTptCst);
+                $("#trainTptCst").text(val.trainTptCst);
+                $("#airTptCst").text(val.airTptCst);
+                $("#noOfDays").text(val.noOfDays);
+                $("#noOfNights").text(val.noOfNights);
+                $("#busPickPLace").text(val.busPickPLace);
+                $("#trainPickPlace").text(val.trainPickPlace);
+                $("#airPickPlace").text(val.airPickPlace);
+                $("#description").text(val.description);
+                $('#imgUri').attr('src',val.imgUri);
+
+            })
+            .catch(function (error) {
+                alert("error");
+                console.log("ERROR : " + error);
+            })
+    }
+</script>
+</body>
+</html>

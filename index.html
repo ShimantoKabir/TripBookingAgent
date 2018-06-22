@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--css fie-->
+    <!--==============-->
+    <!--fontawesome-->
+    <link rel="stylesheet" href="css/fontawesome-all.css" >
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <!--main css-->
+    <link rel="stylesheet" href="css/main.css" >
+
+    <!--js file-->
+    <!--==============-->
+    <!--bootstrap js-->
+    <script src="js/bootstrap.js" ></script>
+    <!--jquery js-->
+    <script src="js/jQuery.js" ></script>
+    <!--main js-->
+    <script src="js/main.js" ></script>
+    <!--firebase database js-->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="js/database.js" ></script>
+</head>
+<body>
+
+    <!--side nav-->
+    <div class="side_nav" >
+        <div class="side_nav_head" >
+            <i class="fab fa-y-combinator"></i>
+            <h4>TRIPPER</h4>
+        </div>
+        <div class="side_nav_menu" ></div>
+    </div>
+
+    <!--main container-->
+    <div class="main_container" >
+
+        <div class="container_header_nav" >
+            <div class="side_nav_close_btn" >
+                <i class="fas fa-th-list"></i>
+            </div>
+            <div class="user_setting" >
+                <a href="#" title="FlexiLoad Balance" ><i class="fab fa-foursquare"></i> Contact Us </a>
+            </div>
+        </div>
+
+        <div class="container" >
+            <div class="row" >
+                <div class="col-sm-12" >
+                    <div class="antp_header" >
+                        <h5 class="click" id="placeName" >Welcome to Y-TRIPPER</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-sm-12" >
+                    <div class="instruction_list" >
+                        <ul class="list-group">
+                            <li class="list-group-item">Open the chat box by clicking he right bottom massage icon</li>
+                            <li class="list-group-item">If you wnat the show the trip package just say "show trip package" or anything similar to this expression like - "Explore trip package" e.t.c</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <button class="open_chat_box"><i class="fab fa-facebook-messenger"></i></button>
+    <div class="my_modal">
+
+        <!-- Modal content -->
+        <div class="modal_content">
+            <div class="modal_header">
+                <i id="chat_logo" class="fab fa-y-combinator"></i>
+                <i id="close_chat_box" class="fas fa-times"></i>
+            </div>
+            <div class="modal_body">
+
+                <div class="loading" >
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    <p> Thinking .... </p>
+                </div>
+                <div class="quick_replay" ></div>
+                <div class="my_card_area" ></div>
+            </div>
+            <div class="modal_footer">
+                <input id="user_replay" type="text" placeholder="Ask Me .... " >
+                <i id="user_replay_icon" class="fab fa-telegram"></i>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
